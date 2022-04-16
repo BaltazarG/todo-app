@@ -1,13 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 
 function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
-
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    inputRef.current.focus();
-  });
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -34,8 +28,8 @@ function TodoForm(props) {
             placeholder="Update your item"
             value={input}
             onChange={handleChange}
+            autoFocus
             name="text"
-            ref={inputRef}
             className="bg-primary border rounded border-primary p-1 mt-5 mx-3 text-center fst-italic text-light w-75"
           />
           <button onClick={handleSubmit} className="btn btn-primary mx-3 mt-5">
@@ -51,7 +45,6 @@ function TodoForm(props) {
             onChange={handleChange}
             name="text"
             className="bg-primary border rounded border-primary p-1 w-75 mx-3 text-center fst-italic text-light"
-            ref={inputRef}
           />
           <button onClick={handleSubmit} className="btn btn-primary mx-3">
             Add todo

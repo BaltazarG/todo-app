@@ -26,7 +26,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
     >
       <div key={todo.id} onClick={() => completeTodo(todo.id)} className="w-50">
         {todo.isComplete ? (
-          <p className="text-primary fst-italic text-decoration-line-through">
+          <p className="text-danger fst-italic text-decoration-line-through">
             {todo.text}
           </p>
         ) : (
